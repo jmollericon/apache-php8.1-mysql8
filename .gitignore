@@ -1,3 +1,4 @@
 www/
 !www/Dockerfile
 !www/index.php
+mysql/*
