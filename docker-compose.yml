@@ -1,29 +1,14 @@
 version: '3.8'
 
 services:
-  db:
-    container_name: db-mysql8.0
-    image: mysql:8.0
-    restart: always
-    volumes:
-      - ./mysql:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db_mysql8
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-    ports:
-      - '8006:3306'
   php-apache-environment:
-    container_name: php8.1-apache
+    container_name: php7.0-apache
     build:
       context: ./www
       dockerfile: Dockerfile
     volumes:
       - ./www:/var/www/html/
     ports:
-      - 8081:80
-    links:
-      - db
+      - 8082:80
 volumes:
   mysql:
